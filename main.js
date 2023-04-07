@@ -1,30 +1,27 @@
-// HTMLから要素を取得する
-const counterElement = document.getElementById('counter');
-const incrementButton = document.getElementById('increment');
-const resetButton = document.getElementById('reset');
-
-// カウンターの値を格納する変数
-let counter = 0;
-
-// カウントアップボタンのクリックイベントを設定する
-incrementButton.addEventListener('click', () => {
-  counter++;
-  counterElement.textContent = counter;
-});
-
-// リセットボタンのクリックイベントを設定する
-resetButton.addEventListener('click', () => {
-  counter = 0;
-  counterElement.textContent = counter;
-});
-
-const counterElement = document.getElementById('counter');
-const dogElement = document.getElementById('dog');
-let counter = 0;
-
-setInterval(() => {
-  counter++;
-  counterElement.textContent = counter;
-  dogElement.style.transform = 'translateX(100%)';
-}, 1000);
-
+(() => {
+    //HTMLのid値を使って以下のDOM要素を取得
+    const downbutton = document.getElementById('down');
+    const upbutton = document.getElementById('up');
+    const text = document.getElementById('textbox');
+    const reset = document.getElementById('reset');
+  
+    //ボタンが押されたらカウント減
+    downbutton.addEventListener('click', (event) => {
+    //0以下にはならないようにする
+    if(text.value >= 1) {
+      text.value--;
+    }
+    });
+  
+    //ボタンが押されたらカウント増
+    upbutton.addEventListener('click', (event) => {
+      text.value++;
+    })
+  
+    //ボタンが押されたら0に戻る
+    reset.addEventListener('click', (event) => {
+      text.value = 0;
+    })
+  
+  })();
+  
